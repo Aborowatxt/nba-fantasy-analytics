@@ -1,21 +1,21 @@
 from src.extract import extract_player_logs
+from src.transform import transform_player_logs
+from src.load import load_player_logs
 
 
 def main():
     print("Starting NBA Fantasy Analytics Pipeline...")
 
-    # Extract NBA player game logs
-    df = extract_player_logs()
+    # Extract
+    raw_df = extract_player_logs()
 
-    # Inspect the extracted data
-    print("\nData preview:")
-    print(df.head())
+    # Transform
+    cleaned_df = transform_player_logs(raw_df)
 
-    print("\nDataset dimensions:")
-    print(df.shape)
+    # Load
+    load_player_logs(cleaned_df)
 
-    print("\nAvailable columns:")
-    print(df.columns.tolist())
+    print("\nETL pipeline completed successfully!")
 
 
 if __name__ == "__main__":
