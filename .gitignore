@@ -20,3 +20,7 @@ data/processed/
 
 # macOS
 .DS_Store
+
+# Pipeline logs
+logs/
+*.log
